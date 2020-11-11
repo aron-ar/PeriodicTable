@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Itim", sans-serif;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* h1,
+h3 {
+} */
+
+.container {
+  width: 99%;
+  margin: 1em;
+  display: grid;
+  grid-template-columns: repeat(32, 80px);
+  grid-template-rows: repeat(7, 75px);
+  grid-gap: 5px;
+  overflow-x: scroll;
+  position: relative;
+}
+
+.container::-webkit-scrollbar {
+  height: 8px; /* Tamaño del scroll en horizontal */
+}
+.container::-webkit-scrollbar-thumb {
+  background: rgb(160, 160, 160);
+  border-radius: 4px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+.container::-webkit-scrollbar-thumb:active {
+  background-color: #3a3a3a;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.container::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+/* Cambiamos el fondo cuando esté en active o hover */
+.container::-webkit-scrollbar-track:hover,
+.container::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+.container .element-table:nth-child(2) {
+  grid-column: 32/33;
+}
+
+.container .element-table:nth-child(5) {
+  grid-column: 27/28;
+}
+.container .element-table:nth-child(13) {
+  grid-column: 27/28;
+}
+
+.container .element-table:nth-child(21) {
+  grid-column: 17/18;
+}
+
+.container .element-table:nth-child(39) {
+  grid-column: 17/18;
+}
+
+.element-table {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  font-size: 0.8em;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+}
+
+.element-table .symbol {
+  font-size: 2.5em;
+}
+.element-table .name {
+  grid-column: 1 / span 2;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 1;
+}
+
+.card {
+  margin: auto;
+  min-width: 300px;
+  border: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  padding: 1em;
+  box-shadow: 0px 0px 1em rgba(255, 255, 255, 0.8);
+}
+
+.description-element {
+  /* display: none; */
+}
