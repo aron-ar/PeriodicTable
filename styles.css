@@ -14,9 +14,35 @@ body {
   overflow-x: hidden;
 }
 
-/* h1,
-h3 {
-} */
+header {
+  width: 100%;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+header .title {
+  margin-bottom: 1em;
+}
+
+header .references a {
+  background: black;
+  padding: 0.4em;
+  margin: 5px;
+  color: #fff;
+  /* margin-left: 5px; */
+  text-decoration: none;
+  font-size: 1.5em;
+  border-radius: 10px;
+  transition: all 0.8s;
+}
+
+header .references a:hover {
+  background: #fff;
+  color: black;
+  box-shadow: 0 0 10px #fff;
+}
 
 .container {
   width: 99%;
@@ -207,4 +233,37 @@ h3 {
   .description-element .symbol {
     grid-column: 1 / span 2;
   }
+}
+@media screen and (min-width: 768px) {
+  header {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+  }
+}
+
+footer {
+  width: 100%;
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+footer .redes {
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer .redes a {
+  color: #fff;
+  width: 30px;
+  text-align: center;
+  transition: all 0.8s;
+}
+
+footer .redes a:hover {
+  border-radius: 25%;
+  color: black;
+  background: white;
+  box-shadow: 0 0 1em white;
 }
