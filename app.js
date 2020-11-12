@@ -13,16 +13,40 @@ async function load() {
   const $elementContainer = document.querySelector(".container");
   const $description = document.querySelector(".description-element");
   const $overlay = document.getElementById("overlay");
+  const $card = document.getElementById("card");
   const $hideModal = document.getElementById("hide-modal");
-
-  console.log($description.children);
 
   renderElements($elementContainer, elements);
 
   function addEventClick($element) {
     $element.addEventListener("click", () => {
       showDescription($element);
+      let color = $element.style.color;
+      if (color === "" || color === "rgb(0, 0, 0)") {
+        color = "rgb(255,255,255)";
+      }
+      $description.style.color = color;
+      $card.style.boxShadow = `0px 0px 1em ${color}`;
     });
+  }
+
+  function changeElementHover($change) {
+    let color = $change.style.color;
+    $change.style.color = "#000";
+    $change.style.boxShadow = `0 0 1em ${color}`;
+    $change.style.background = `linear-gradient(to bottom , ${color}, rgba(255,255,255,1) 70%)`;
+  }
+
+  function addEventHover($element) {
+    $element.addEventListener("mouseover", () => {
+      changeElementHover($element);
+    });
+    $element.addEventListener("mouseDown", () => {
+      changeElementHover($element);
+    });
+
+    $element.addEventListener("mouseout", paintTable);
+    $element.addEventListener("mouseup", paintTable);
   }
 
   function renderElements($container, elements) {
@@ -31,15 +55,20 @@ async function load() {
       const playElement = createTemplate(HTMLString);
       $container.append(playElement);
       addEventClick(playElement);
+      addEventHover(playElement);
     });
   }
 
-  for (let i = 0; i <= elements.length - 1; i++) {
-    const $elementTable = document.getElementById(`${i + 1}`);
-    $elementTable.style.color = `#${elements[i].cpkHexColor}`;
-    $elementTable.style.background = `linear-gradient(to bottom , #${elements[i].cpkHexColor}, rgba(0,0,0,.5) 70%)`;
-    $elementTable.style.border = `3px solid #${elements[i].cpkHexColor}`;
+  function paintTable() {
+    for (let i = 0; i <= elements.length - 1; i++) {
+      const $elementTable = document.getElementById(`${i + 1}`);
+      $elementTable.style.color = `#${elements[i].cpkHexColor}`;
+      $elementTable.style.background = `linear-gradient(to bottom , #${elements[i].cpkHexColor}, rgba(0,0,0,.5) 70%)`;
+      $elementTable.style.border = `3px solid #${elements[i].cpkHexColor}`;
+      $elementTable.style.boxShadow = "none";
+    }
   }
+  paintTable();
 
   async function showDescription(elemento) {
     $overlay.classList.add("active");

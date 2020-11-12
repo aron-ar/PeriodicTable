@@ -5,7 +5,7 @@
 
 body {
   font-family: "Itim", sans-serif;
-  background: black;
+  background: #1c2b2d;
   color: white;
   display: flex;
   justify-content: center;
@@ -20,10 +20,10 @@ h3 {
 
 .container {
   width: 99%;
-  margin: 1em;
+  padding: 5px;
   display: grid;
-  grid-template-columns: repeat(32, 80px);
-  grid-template-rows: repeat(7, 75px);
+  grid-template-columns: repeat(32, 95px);
+  grid-template-rows: repeat(7, 70px);
   grid-gap: 5px;
   overflow-x: scroll;
   position: relative;
@@ -77,15 +77,20 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  font-size: 0.8em;
   align-items: center;
   justify-items: center;
   cursor: pointer;
+  font-size: 1em;
 }
 
 .element-table .symbol {
-  font-size: 2.5em;
+  font-size: 2rem;
 }
+
+.element-table .atomicnumber {
+  font-size: 1.2rem;
+}
+
 .element-table .name {
   grid-column: 1 / span 2;
 }
@@ -120,9 +125,52 @@ h3 {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding: 1em;
-  box-shadow: 0px 0px 1em rgba(255, 255, 255, 0.8);
+  /* box-shadow: 0px 0px 1em rgba(255, 255, 255, 0.8); */
 }
 
 .description-element {
-  /* display: none; */
+  display: block;
+}
+
+.description-element .name {
+  text-align: center;
+}
+
+.description-element .symbol {
+  text-align: center;
+}
+
+.description-element .atomicNumber {
+  text-align: center;
+}
+
+.description-element .atomicMass {
+  text-align: center;
+}
+
+#hide-modal {
+  background-color: rgba(0, 0, 255, 0.5);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0.5em 0;
+  height: 1.5em;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 480px) {
+  .description-element {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.3rem;
+  }
+  .description-element .name {
+    grid-column: 1 / span 2;
+  }
+  .description-element .symbol {
+    grid-column: 1 / span 2;
+  }
 }
