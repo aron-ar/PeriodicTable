@@ -12,6 +12,7 @@ async function load() {
   const elements = await getData(`${BASE_API}`);
   const $elementContainer = document.querySelector(".container");
   const $description = document.querySelector(".description-element");
+  const $modal = document.getElementById("modal");
   const $overlay = document.getElementById("overlay");
   const $card = document.getElementById("card");
   const $hideModal = document.getElementById("hide-modal");
@@ -27,6 +28,7 @@ async function load() {
       }
       $description.style.color = color;
       $card.style.boxShadow = `0px 0px 1em ${color}`;
+      $modal.style.animation = "modalIn .8s forwards";
     });
   }
 
@@ -99,6 +101,7 @@ async function load() {
   $hideModal.addEventListener("click", hideModal);
 
   function hideModal() {
+    $modal.style.animation = "modalOut .8s forwards";
     $overlay.classList.remove("active");
   }
 }
