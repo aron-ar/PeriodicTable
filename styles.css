@@ -44,6 +44,12 @@ header .references a:hover {
   box-shadow: 0 0 10px #fff;
 }
 
+header .references a:active {
+  background: #fff;
+  color: black;
+  box-shadow: 0 0 10px #fff;
+}
+
 .container {
   width: 99%;
   padding: 5px;
@@ -262,6 +268,13 @@ footer .redes a {
 }
 
 footer .redes a:hover {
+  border-radius: 25%;
+  color: black;
+  background: white;
+  box-shadow: 0 0 1em white;
+}
+
+footer .redes a:active {
   border-radius: 25%;
   color: black;
   background: white;
