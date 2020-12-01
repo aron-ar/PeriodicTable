@@ -62,7 +62,7 @@ header .references a:active {
 }
 
 .container::-webkit-scrollbar {
-  height: 8px; /* Tamaño del scroll en horizontal */
+  height: 10px; /* Tamaño del scroll en horizontal */
 }
 .container::-webkit-scrollbar-thumb {
   background: rgb(160, 160, 160);
@@ -214,12 +214,42 @@ header .references a:active {
   text-align: center;
 }
 
+.buttons {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+#left {
+  background-color: rgba(0, 0, 255, 0.5);
+  border: none;
+  width: 50%;
+  border-radius: 10px;
+  margin: 0.5em 0;
+  height: 1.5em;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 2em;
+}
+#right {
+  background-color: rgba(0, 0, 255, 0.5);
+  border: none;
+  width: 50%;
+  border-radius: 10px;
+  margin: 0.5em;
+  height: 1.5em;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 2em;
+}
 #hide-modal {
   background-color: rgba(0, 0, 255, 0.5);
   border: none;
-  border-radius: 10px;
   width: 100%;
-  margin: 0.5em 0;
+  border-radius: 10px;
+  margin: 0.5em 0.5em;
   height: 1.5em;
   color: #fff;
   font-family: inherit;

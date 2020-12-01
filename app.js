@@ -16,6 +16,8 @@ async function load() {
   const $overlay = document.getElementById("overlay");
   const $card = document.getElementById("card");
   const $hideModal = document.getElementById("hide-modal");
+  const $left = document.getElementById("left");
+  const $right = document.getElementById("right");
 
   renderElements($elementContainer, elements);
 
@@ -30,6 +32,13 @@ async function load() {
       $card.style.boxShadow = `0px 0px 1em ${color}`;
       $modal.style.animation = "modalIn .8s forwards";
     });
+  }
+
+  $hideModal.addEventListener("click", hideModal);
+
+  function hideModal() {
+    $modal.style.animation = "modalOut .8s forwards";
+    $overlay.classList.remove("active");
   }
 
   function changeElementHover($change) {
@@ -76,7 +85,9 @@ async function load() {
     $overlay.classList.add("active");
     const id = elemento.dataset.id;
     const element = await getData(`${BASE_API}/atomicNumber/${id}`);
-
+    completeData(element);
+  }
+  function completeData(element) {
     $description.children[0].textContent = element.name;
     $description.children[1].textContent = element.symbol;
     $description.children[2].textContent = `Numero Atómico: ${element.atomicNumber}`;
@@ -96,13 +107,6 @@ async function load() {
     $description.children[16].textContent = `Configuración Electrónica: ${element.electronicConfiguration}`;
     $description.children[17].textContent = `Tipo de unión: ${element.bondingType}`;
     $description.children[18].textContent = `Año de descubrimiento: ${element.yearDiscovered}`;
-  }
-
-  $hideModal.addEventListener("click", hideModal);
-
-  function hideModal() {
-    $modal.style.animation = "modalOut .8s forwards";
-    $overlay.classList.remove("active");
   }
 }
 
